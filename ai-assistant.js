@@ -96,12 +96,15 @@ const RW_CONFIG = {
 
     const apiKey = "AQ.Ab8RN6Iw_k-VhpNeKiY52-x0-IOg6s5snht604fKRA6dBVHhKg";
     const model = "gemini-1.5-flash";
-    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
+    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`;
 
     try {
       const res = await fetch(apiUrl, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          "x-goog-api-key": apiKey
+        },
         body: JSON.stringify({
           contents: [
             {
@@ -115,7 +118,7 @@ const RW_CONFIG = {
       const data = await res.json();
 
       if (!res.ok || data.error) {
-        throw new Error(data.error?.message || "خطأ في الاتصال");
+        throw new Error(data.error?.message || "خطأ في الاتصال أو المصادقة");
       }
 
       const reply = data.candidates[0].content.parts[0].text;
