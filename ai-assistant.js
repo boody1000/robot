@@ -94,7 +94,7 @@ const RW_CONFIG = {
     setState("thinking");
     setStatus("يفكر...");
 
-    const apiKey = "AQ.Ab8RN6Iw_k-VhpNeKiY52-x0-IOg6s5snht604fKRA6dBVHhKg";
+    const apiKey = "AQ.Ab8RN6Kss34oUG46LmorS5Cugu54m9Vw_ku3TBQcNBrMkUgCmQ";
     const model = "gemini-1.5-flash";
     const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`;
 
